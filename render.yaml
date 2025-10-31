@@ -1,0 +1,25 @@
+services:
+  - type: web
+    name: mis223450 # 建議使用專案名稱作為服務名稱
+    env: python
+    buildCommand: |
+      # 1. 安裝 ffmpeg 系統依賴 (pydub 需要)
+      sudo apt-get update && sudo apt-get install -y ffmpeg
+      # 2. 安裝 Python 依賴
+      pip install -r requirements.txt
+      # 3. 執行 Django 靜態文件和資料庫遷移
+      python manage.py migrate
+      python manage.py collectstatic --noinput
+    # 注意：startCommand 現在指向根目錄的 wsgi
+    startCommand: gunicorn system.wsgi:application --bind 0.0.0.0:$PORT --workers 2
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: misdb # 資料庫名稱
+          property: connectionString
+      - key: RENDER_EXTERNAL_HOSTNAME
+        generateValue: true
+databases:
+  - name: misdb # 資料庫名稱

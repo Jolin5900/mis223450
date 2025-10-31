@@ -1,0 +1,13 @@
+Django==5.2.3
+gunicorn
+psycopg2-binary # <--- PostgreSQL 支援
+dj-database-url # <--- 解析 DATABASE_URL
+whitenoise # <--- 處理靜態文件
+python-dotenv
+
+# 您的 AI/音訊依賴
+whisper
+openai
+ffmpeg-python
+pydub
+torch==2.1.0 # <--- 確保版本穩定
