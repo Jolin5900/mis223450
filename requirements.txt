@@ -10,4 +10,6 @@ whisper
 openai
 ffmpeg-python
 pydub
+# 新增一個用於確認 Python 版本的依賴
+packaging
 torch==2.1.0 # <--- 確保版本穩定
