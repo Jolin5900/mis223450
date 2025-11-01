@@ -3,10 +3,10 @@
 # 使用官方的 Python 3.13 最小映像檔作為基礎
 FROM python:3.13-slim
 
-# 安裝系統依賴 (PortAudio 和 FFmpeg)
-# 這是關鍵步驟，它繞過了 Render buildCommand 的限制
+# 安裝系統依賴 (編譯器、PortAudio 和 FFmpeg)
+# build-essential 包含了 gcc, g++ 等編譯工具
 RUN apt-get update && \
-    apt-get install -y portaudio19-dev ffmpeg && \
+    apt-get install -y build-essential portaudio19-dev ffmpeg && \
     rm -rf /var/lib/apt/lists/*
 
 # 設定工作目錄
