@@ -12,4 +12,6 @@ ffmpeg-python
 pydub
 # 新增一個用於確認 Python 版本的依賴
 packaging
-torch==2.9.0 # <--- 確保版本穩定
+torch==2.9.0
+# 新增 PyAudio 來解決音訊模組依賴問題
+PyAudio
