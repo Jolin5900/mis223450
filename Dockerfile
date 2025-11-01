@@ -1,7 +1,7 @@
 # Dockerfile
 
 # 使用官方的 Python 3.13 最小映像檔作為基礎
-FROM python:3.13-slim
+FROM python:3.11-slim
 
 # 安裝系統依賴 (編譯器、PortAudio 和 FFmpeg)
 # build-essential 包含了 gcc, g++ 等編譯工具
