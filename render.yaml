@@ -3,11 +3,11 @@ services:
     name: mis223450
     env: python
     buildCommand: |
-      # 1. 更新套件列表
-      sudo apt-get update
+      # 1. 更新套件列表 (嘗試直接使用 apt-get)
+      apt-get update
       # 2. 安裝 PyAudio 依賴的 PortAudio 開發函式庫
-      sudo apt-get install -y portaudio19-dev
-      # 3. 執行 Python 依賴安裝 (現在 PyAudio 就能成功編譯了)
+      apt-get install -y portaudio19-dev
+      # 3. 執行 Python 依賴安裝 (現在 PyAudio 應該能成功編譯)
       pip install --no-cache-dir -r requirements.txt
       # 4. 執行 Django 設置
       python manage.py collectstatic --no-input
